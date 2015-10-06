@@ -3,25 +3,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Bairros</title>
     </h:head>
     <h:body>
         <ui:decorate template="/JanelaPrincipal.xhtml">
             <ui:define name="centro">
-                <h:panelGrid columns="2">
-                    Codigo:<p:inputText />
-                    Nome do bairro:<p:inputText />
-                </h:panelGrid>
-                <p:fieldset legend="Valores padrao para calculo do imposto">
+                <h:form id="formCampos">
                     <h:panelGrid columns="2">
-                        Terreno:<p:inputText />
-                        Edificacoes:<p:inputText />
-                   </h:panelGrid>
-                </p:fieldset>
-                <p:commandButton value="Reajustar todos os valores" />
-                Informando um percentual geral
+                        Nome do bairro:<p:inputText value="#{bairroMB.bairro.nome}"/>
+                    </h:panelGrid>
+                    <p:separator/>
+                    <p:fieldset legend="Valores padrão para cálculo do imposto">
+                        <h:panelGrid columns="2">
+                            Terreno:<p:inputText value="#{bairroMB.bairro.valorTerreno}"/>
+                            Edificacoes:<p:inputText value="#{bairroMB.bairro.valorEdificacao}"/>
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <p:commandButton value="Salvar" ajax="false"  update=":formCampos, :tabelaBairros" action="#{bairroMB.inserirBairro()}"/>
+
+                    <p:commandButton value="Reajustar todos os valores" />
+                    Informando um percentual geral
+                </h:form>
+
+                <p:separator/>
+                <p:dataTable id="tabelaBairros" value="#{bairroMB.bairros}" emptyMessage="Não há registros" var="bairro" paginator="true" rows="5"
+                             selectionMode="single" rowKey="#{bairro.id}"> 
+                    <f:facet name="header">
+                        <h:outputText value="Bairros cadastrados"/>
+                    </f:facet>
+                    <p:column headerText="Nome" filterBy="#{bairro.nome}" filterMatchMode="contains"> 
+                        <h:outputText value="#{bairro.nome}"/> 
+                    </p:column> 
+                    <p:column headerText="Valor terreno" filterBy="#{bairro.valorTerreno}" filterMatchMode="contains"> 
+                        <h:outputText value="#{bairro.valorTerreno}"/> 
+                    </p:column>
+                    <p:column headerText="Valor edificação" filterBy="#{bairro.valorEdificacao}" filterMatchMode="contains"> 
+                        <h:outputText value="#{bairro.valorEdificacao}"/> 
+                    </p:column>
+                </p:dataTable> 
             </ui:define>
         </ui:decorate>
     </h:body>

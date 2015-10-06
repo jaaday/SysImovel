@@ -13,5 +13,5 @@ import javax.persistence.Persistence;
  * @author sephi_000
  */
 public class JPAUtil {
-    public static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("SusImovelPU");
+    public static final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("SysImovelPU");
 }

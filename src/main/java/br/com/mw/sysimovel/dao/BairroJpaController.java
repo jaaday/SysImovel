@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -186,6 +187,20 @@ public class BairroJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    public Bairro pesqBairroNome(Bairro b) {
+        
+        EntityManager em = getEntityManager();
+        try{                                
+            TypedQuery<Bairro> query = em.createQuery("select b from Bairro b where b.nome = :nome",Bairro.class);
+            query.setParameter("nome", b.getNome());
+            return query.getSingleResult();
+            
+        }catch (Exception e){
+            return null;
+        }
+        
     }
     
 }

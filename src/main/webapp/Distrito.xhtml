@@ -10,10 +10,12 @@
     <h:body>
         <ui:decorate template="/JanelaPrincipal.xhtml">
             <ui:define name="centro">
-                <h:panelGrid columns="2">
-                    Codigo:<p:inputText />
-                    Descricao:<p:inputText />
-                </h:panelGrid>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        Codigo:<p:inputText />
+                        Descricao:<p:inputText />
+                    </h:panelGrid>
+                </h:form>
             </ui:define>
         </ui:decorate>
     </h:body>
