@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="150" closable="true" collapsible="true">
+                <center>
+                    <h1>LUGAR PARA UMA LOGO</h1>
+                </center>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" size="250">               
+                <h:form>
+                    <p:growl autoUpdate="true"/>
+                    <p:menu toggleable="true">                      
+                        <p:separator />
+                        <p:submenu label="Imobilário" >  
+                            <p:menuitem value="Bairro" outcome="/Bairro" icon="ui-icon-signal" /> 
+                            <p:menuitem value="Contribuintes" outcome="/Contribuinte" icon="ui-icon-signal" />
+                            <p:menuitem value="Loteamento" outcome="/Loteamento" icon="ui-icon-signal" />
+                            <p:menuitem value="Setores" outcome="/Setor" icon="ui-icon-signal" />                                                       
+                        </p:submenu>
+                        <p:submenu label="Tabelas">  
+                            <p:menuitem value="Conservação" outcome="/Conservacao" icon="ui-icon-signal" /> 
+                            <p:menuitem value="Distrito" outcome="/Distrito" icon="ui-icon-signal" /> 
+                            <p:menuitem value="Estrutura" outcome="/Estrutura" icon="ui-icon-signal" />   
+                            <p:menuitem value="IsencaoIPTU" outcome="/IsencaoIPTU" icon="ui-icon-signal" />
+                            <p:menuitem value="IsencaoTSU" outcome="/IsencaoTSU" icon="ui-icon-signal" /> 
+                            <p:menuitem value="Limitação" outcome="/Limitacao" icon="ui-icon-signal" />  
+                            <p:menuitem value="Natureza" outcome="/Natureza" icon="ui-icon-signal" />
+                            <p:menuitem value="Patrimônio" outcome="/Patrimonio" icon="ui-icon-signal" />  
+                            <p:menuitem value="Pedologia" outcome="/Pedologia" icon="ui-icon-signal" />  
+                            <p:menuitem value="Posicionamento" outcome="/Posicionamento" icon="ui-icon-signal" /> 
+                            <p:menuitem value="Situação" outcome="/Situacao" icon="ui-icon-signal" />
+                            <p:menuitem value="Taxa" outcome="/Taxa" icon="ui-icon-signal" /> 
+                            <p:menuitem value="Topografia" outcome="/Topografia" icon="ui-icon-signal" />                          
+                            <p:menuitem value="Utilização" outcome="/Utilizacao" icon="ui-icon-signal" />  
+                        </p:submenu>
+                        <p:submenu label="Mercantil">
+
+                        </p:submenu>
+                        <p:submenu label="Manutencao">
+
+                        </p:submenu>
+                        <p:submenu label="Editar">
+
+                        </p:submenu>
+                        <p:submenu label="Exibir">
+
+                        </p:submenu>
+                        <p:submenu label="Janela">
+
+                        </p:submenu>
+                        <p:submenu label="Ajuda">
+
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="centro">
+
+                </ui:insert>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+

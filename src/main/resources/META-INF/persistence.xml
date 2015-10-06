@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="SysImovelPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.com.mw.sysimovel.model.Natureza</class>
+    <class>br.com.mw.sysimovel.model.SecaoLogradouro</class>
+    <class>br.com.mw.sysimovel.model.Estrutura</class>
+    <class>br.com.mw.sysimovel.model.Posicionamento</class>
+    <class>br.com.mw.sysimovel.model.Distrito</class>
+    <class>br.com.mw.sysimovel.model.Logradouro</class>
+    <class>br.com.mw.sysimovel.model.Loteamento</class>
+    <class>br.com.mw.sysimovel.model.Taxa</class>
+    <class>br.com.mw.sysimovel.model.Pedologia</class>
+    <class>br.com.mw.sysimovel.model.Bairro</class>
+    <class>br.com.mw.sysimovel.model.Topografia</class>
+    <class>br.com.mw.sysimovel.model.Conservacao</class>
+    <class>br.com.mw.sysimovel.model.Edificacao</class>
+    <class>br.com.mw.sysimovel.model.Situacao</class>
+    <class>br.com.mw.sysimovel.model.Contribuinte</class>
+    <class>br.com.mw.sysimovel.model.Utilizacao</class>
+    <class>br.com.mw.sysimovel.model.IsencaoIptu</class>
+    <class>br.com.mw.sysimovel.model.IsencaoTsu</class>
+    <class>br.com.mw.sysimovel.model.Imovel</class>
+    <class>br.com.mw.sysimovel.model.Setor</class>
+    <class>br.com.mw.sysimovel.model.Patrimonio</class>
+    <class>br.com.mw.sysimovel.model.Limitacao</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/sisiptu"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+  </persistence-unit>
+</persistence>

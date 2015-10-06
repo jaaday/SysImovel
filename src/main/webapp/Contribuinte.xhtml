@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Contribuintes</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="/JanelaPrincipal.xhtml">
+            <ui:define name="centro">
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Tipo do Contribuinte"/>
+                        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:155px">
+                            <f:selectItem itemLabel="Selecinar" itemValue="" />
+                            <f:selectItem itemLabel="Pessoa Física" itemValue="Pessoa Física" />
+                            <f:selectItem itemLabel="Pessoa Jurídica" itemValue="Pessoa Jurídica" />
+                        </p:selectOneMenu>
+                    </h:panelGrid>         
+                    <h:panelGrid columns="4">
+                        <h:outputText value="CNPJ:"/><p:inputText maxlength="14" style="width: 150px"/>
+                        <h:outputText value="CPF:"/><p:inputText maxlength="11" style="width: 125px"/>
+                    </h:panelGrid>
+                    
+                    <h:panelGrid columns="2"> 
+                        Nome:<p:inputText maxlength="50" style="width: 650px"/>
+                    </h:panelGrid>
+                        <p:separator/>
+                    <h:panelGrid columns="2">    
+                        Tipo do Lagradouro:<p:inputText />
+                        Endereco:<p:inputText />
+                        Complemento: <p:inputText />
+                        Numero: <p:inputText />
+                        Bairro: <p:inputText />
+                        Cidade: <p:inputText />                
+                    </h:panelGrid>
+                    <h:panelGrid columns="4">
+                        UF:<p:inputText />
+                        CEP:<p:inputText />
+                    </h:panelGrid>
+                    <h:panelGrid columns="2">
+                        Fone:<p:inputText />
+                        E-mail:<p:inputText />
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:decorate>
+    </h:body>
+</html>
