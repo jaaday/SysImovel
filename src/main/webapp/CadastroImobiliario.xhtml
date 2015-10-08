@@ -36,6 +36,7 @@
                                     </h:panelGrid>
                                 </p:fieldset>
                             </h:panelGrid>
+                            <p:separator/>
                             <p:fieldset legend="Localização do Imóvel">
                                 <h:panelGrid columns="4">
                                     Logradouro:<p:selectOneMenu/>
@@ -46,6 +47,7 @@
                                     Loteamento:<p:selectOneMenu/>
                                 </h:panelGrid>
                             </p:fieldset>
+                            <p:separator/>
                             <p:fieldset legend="Porprietário/End. correspondência">
                                 <h:panelGrid columns="4">
                                     Contribuinte:<p:selectOneMenu/>
@@ -89,27 +91,89 @@
                                     </h:panelGrid>
                                 </p:fieldset>
                             </h:panelGrid>
+                            <p:separator/>
                             <p:fieldset legend="Medidas do Imóvel">
+                                <h:panelGrid columns="2">                                    
+                                    <h:panelGrid columns="6">
+                                        <h6> Testada Principal(m):</h6><p:inputText />
+                                        <h6>Área do lote(m²):</h6><p:inputText/>
+                                        <h6>Profundidade(m):</h6><p:inputText/>
+                                        <h6>Área construída(m²):</h6><p:inputText/>                                                                   
+                                        <h6>Área total construída(m²):</h6><p:inputText/>
+                                        <h6>Nº de Pavimentos:</h6><p:inputText/>
+                                    </h:panelGrid>
+                                </h:panelGrid>
+                            </p:fieldset>
+                            <p:separator/>
+                            <p:fieldset legend="Valores">
                                 <h:panelGrid columns="2">
-                                    <p:fieldset>
-                                        <h:panelGrid columns="6">
-                                            Testada Principal:<p:inputText/>m
-                                            Área do lote:<p:inputText/>m²
-                                            Área total construída:<p:inputText/>m²
-                                        </h:panelGrid>
-                                    </p:fieldset>
-                                    <p:fieldset>
-                                            <h:panelGrid columns="3">
-                                                Profundidade:<p:inputText/>m
-                                                Área total construída:<p:inputText/>m²
-                                                Nº de Pavimentos:<p:inputText/>.
-                                            </h:panelGrid>
-                                    </p:fieldset>
+                                    <h:panelGrid columns="4">
+                                        <h6>Valor do M² do terreno:</h6><p:inputText/>
+                                        <h6>Valor venal do terreno:</h6><p:inputText/>
+                                        <h6>Valor do M² de Construção:</h6><p:inputText/>
+                                        <h6>Valor venal da edificação:</h6><p:inputText/>
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2">
+                                        <h6>Valor venal TOTAL:</h6><p:inputText/>
+                                    </h:panelGrid>
                                 </h:panelGrid>
                             </p:fieldset>
                         </p:tab>
                         <p:tab title="IPTU">
-                            
+                            <p:fieldset legend="Composição do IPTU">
+                                <p:dataTable>
+                                    <p:column headerText="Exercício">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Taxa">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Valor do imposto">
+                                        
+                                    </p:column>
+                                </p:dataTable>
+                            </p:fieldset>
+                            <p:separator/>
+                            <p:fieldset legend="Parcelas">
+                                <p:dataTable>
+                                    <p:column headerText="Exercício">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Parcela">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Data Venc">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Valor">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Data Pgto">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Valor Pago">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Desconto">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Multa">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Juros">
+                                        
+                                    </p:column>
+                                    <p:column headerText="Nº do Boleto">
+                                        
+                                    </p:column>
+                                </p:dataTable>
+                            </p:fieldset>
+                            <br/>
+                            <div align="left">
+                                <p:commandButton value="Imprimir Ficha"/>
+                                <p:commandButton value="Imprimir Boletos"/>
+                                <p:commandButton value="Calcular IPTU"/>
+                            </div>
                         </p:tab>
                     </p:tabView>
                 </h:form>
