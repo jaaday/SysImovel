@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro Imobiliário</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="/JanelaPrincipal.xhtml">
+            <ui:define name="centro">
+                <h:form>
+                    <p:tabView>
+                        <p:tab title="Dados gerais">
+                            <h:panelGrid columns="2">
+                                <p:fieldset legend="Inscrição">
+                                    <h:panelGrid columns="4">
+                                        Distrito:<p:selectOneMenu/>
+                                        Setor:<p:selectOneMenu/>
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2">
+                                        Quadra:<p:inputText/>
+                                        Lote:<p:inputText/>
+                                        Unidade:<p:inputText/>
+                                    </h:panelGrid>
+                                </p:fieldset>
+                                <p:fieldset>
+                                    <h:panelGrid columns="2">
+                                        Distrito:<p:inputText disabled="true"/>
+                                        Setor:<p:inputText disabled="true"/>                                    
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="4">
+                                        Natureza:<p:selectOneMenu/>
+                                        Edificação:<p:selectOneMenu/>
+                                    </h:panelGrid>
+                                </p:fieldset>
+                            </h:panelGrid>
+                            <p:fieldset legend="Localização do Imóvel">
+                                <h:panelGrid columns="4">
+                                    Logradouro:<p:selectOneMenu/>
+                                    Seção:<p:selectOneMenu/>
+                                    Número:<p:inputText/>
+                                    Bairro:<p:inputText/>
+                                    Complemento:<p:inputText/>
+                                    Loteamento:<p:selectOneMenu/>
+                                </h:panelGrid>
+                            </p:fieldset>
+                            <p:fieldset legend="Porprietário/End. correspondência">
+                                <h:panelGrid columns="4">
+                                    Contribuinte:<p:selectOneMenu/>
+                                    Usar endereçao:<p:selectOneMenu/>
+                                </h:panelGrid>
+                                <h:panelGrid columns="4">
+                                    Tipo do Lograd:<p:inputText/>
+                                    Endereço:<p:inputText/>
+                                    Nº:<p:inputText/>
+                                    Bairro:<p:inputText title="Bairro para correspondência"/>
+                                </h:panelGrid>
+                                <h:panelGrid columns="6">
+                                    Cidade:<p:inputText/>
+                                    CEP:<p:inputText/>
+                                    Complemento:<p:inputText/>
+                                </h:panelGrid>
+                            </p:fieldset>
+                        </p:tab>
+                        <p:tab title="Dados do imóvel/terreno">
+                            <h:panelGrid columns="3">
+                                <p:fieldset legend="Informações gerais sobre o TERRENO">
+                                    <h:panelGrid columns="2">
+                                        Situação:<p:selectOneMenu/>
+                                        Topografia:<p:selectOneMenu/>
+                                        Pedologia:<p:selectOneMenu/>
+                                        Posicionamento:<p:selectOneMenu/>
+                                    </h:panelGrid>
+                                </p:fieldset>
+                                <p:fieldset legend="Isenções">
+                                    <h:panelGrid columns="2">
+                                        Isenção de IPTU:<p:selectOneMenu/>
+                                        Isençao TSU:<p:selectOneMenu/>
+                                    </h:panelGrid>
+                                </p:fieldset>
+                                <p:fieldset legend="Informações sobre a EDIFICAÇÃO">
+                                    <h:panelGrid columns="2">
+                                        Ocupação/estrut:<p:selectOneMenu/>
+                                        Patrimônio:<p:selectOneMenu/>
+                                        Utilização:<p:selectOneMenu/>
+                                        Limitação:<p:selectOneMenu/>
+                                    </h:panelGrid>
+                                </p:fieldset>
+                            </h:panelGrid>
+                            <p:fieldset legend="Medidas do Imóvel">
+                                <h:panelGrid columns="2">
+                                    <p:fieldset>
+                                        <h:panelGrid columns="6">
+                                            Testada Principal:<p:inputText/>m
+                                            Área do lote:<p:inputText/>m²
+                                            Área total construída:<p:inputText/>m²
+                                        </h:panelGrid>
+                                    </p:fieldset>
+                                    <p:fieldset>
+                                            <h:panelGrid columns="3">
+                                                Profundidade:<p:inputText/>m
+                                                Área total construída:<p:inputText/>m²
+                                                Nº de Pavimentos:<p:inputText/>.
+                                            </h:panelGrid>
+                                    </p:fieldset>
+                                </h:panelGrid>
+                            </p:fieldset>
+                        </p:tab>
+                        <p:tab title="IPTU">
+                            
+                        </p:tab>
+                    </p:tabView>
+                </h:form>
+            </ui:define>
+        </ui:decorate>
+    </h:body>
+</html>
+
