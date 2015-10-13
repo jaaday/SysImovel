@@ -3,20 +3,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Natureza</title>
     </h:head>
     <h:body>
         <ui:decorate template="/JanelaPrincipal.xhtml">
             <ui:define name="centro">
-                <h:form>
+                <h:form id="formCampos">
                     <h:panelGrid columns="2">
-                        Ocupacao:<p:inputText />
-                        Descricao:<p:inputText />
-                        Fator:<p:inputText />
+                        Descricao:<p:inputText value="#{naturezaMB.natureza.descricao}"/>
+                        Fator:<p:inputText value="#{naturezaMB.natureza.fator}"/>
                     </h:panelGrid>
+                    <p:commandButton value="Salvar" ajax="false"  update=":formCampos, :tabelaNaturezas" action="#{naturezaMB.inserirNatureza()}" />
                 </h:form>
+                <p:separator/>
+                <p:dataTable id="tabelaNaturezas" value="#{naturezaMB.naturezas}" emptyMessage="Não há registros" var="natureza" paginator="true" rows="5"
+                             selectionMode="single" rowKey="#{natureza.id}"> 
+                    <f:facet name="header">
+                        <h:outputText value="Natureza cadastrados"/>
+                    </f:facet>
+                    <p:column headerText="Descrição" filterBy="#{natureza.descricao}" filterMatchMode="contains"> 
+                        <h:outputText value="#{natureza.descricao}"/> 
+                    </p:column> 
+                    <p:column headerText="Fator" filterBy="#{natureza.fator}" filterMatchMode="contains"> 
+                        <h:outputText value="#{natureza.fator}"/> 
+                    </p:column>
+                </p:dataTable>
             </ui:define>
         </ui:decorate>
     </h:body>

@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -185,6 +186,18 @@ public class DistritoJpaController implements Serializable {
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
+        }
+    }
+
+    public Distrito pesqDistritoNome(Distrito d) {
+        EntityManager em = getEntityManager();
+        try{                                
+            TypedQuery<Distrito> query = em.createQuery("select d from Distrito d where d.descricao = :descricao",Distrito.class);
+            query.setParameter("descricao", d.getDescricao());
+            return query.getSingleResult();
+            
+        }catch (Exception e){
+            return null;
         }
     }
     

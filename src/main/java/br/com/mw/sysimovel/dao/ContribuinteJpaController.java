@@ -18,6 +18,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -185,6 +186,18 @@ public class ContribuinteJpaController implements Serializable {
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
+        }
+    }
+
+    public Contribuinte pesqContribuinteNome(Contribuinte c) {
+        EntityManager em = getEntityManager();
+        try{                                
+            TypedQuery<Contribuinte> query = em.createQuery("select c from Contribuinte c where c.nome = :nome",Contribuinte.class);
+            query.setParameter("nome", c.getNome());
+            return query.getSingleResult();
+            
+        }catch (Exception e){
+            return null;
         }
     }
     
