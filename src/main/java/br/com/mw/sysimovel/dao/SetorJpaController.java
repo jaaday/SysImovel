@@ -20,6 +20,7 @@ import br.com.mw.sysimovel.model.Setor;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -264,6 +265,18 @@ public class SetorJpaController implements Serializable {
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
+        }
+    }
+    
+    public Setor pesqSetorNome(Setor s) {
+        EntityManager em = getEntityManager();
+        try{                                
+            TypedQuery<Setor> query = em.createQuery("select s from Setor s where s.descricao = :descricao",Setor.class);
+            query.setParameter("descricao", s.getDescricao());
+            return query.getSingleResult();
+            
+        }catch (Exception e){
+            return null;
         }
     }
     

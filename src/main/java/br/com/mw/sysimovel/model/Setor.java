@@ -53,6 +53,7 @@ public class Setor implements Serializable {
     private Collection<Loteamento> loteamentoCollection;
 
     public Setor() {
+        distritoId = new Distrito();
     }
 
     public Setor(Integer id) {

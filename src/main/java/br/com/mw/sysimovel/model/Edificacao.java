@@ -48,6 +48,8 @@ public class Edificacao implements Serializable {
     @Size(max = 50)
     @Column(name = "descricao")
     private String descricao;
+    @Column(name = "fator")
+    private BigDecimal fator;
     @Column(name = "exercicio")
     @Temporal(TemporalType.TIMESTAMP)
     private Date exercicio;
@@ -128,6 +130,14 @@ public class Edificacao implements Serializable {
     @Override
     public String toString() {
         return "br.com.mw.sysimovel.model.Edificacao[ id=" + id + " ]";
+    }
+
+    public BigDecimal getFator() {
+        return fator;
+    }
+
+    public void setFator(BigDecimal fator) {
+        this.fator = fator;
     }
     
 }

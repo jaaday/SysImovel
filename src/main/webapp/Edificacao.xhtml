@@ -3,29 +3,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Edificação</title>
     </h:head>
     <h:body>
         <ui:decorate template="/JanelaPrincipal.xhtml">
             <ui:define name="centro">
-                <h:form>
+                <h:form id="formCampos">
                     <h:panelGrid columns="2">
-                        Código:<p:inputText />
-                        Descrição:<p:inputText />
-                        Fator:<p:inputText />
+                        Descrição:<p:inputText value="#{edificacaoMB.edificacao.descricao}"/>
+                        Fator:<p:inputText value="#{edificacaoMB.edificacao.fator}"/>
+                        Exercício:<p:calendar id="button" value="#{edificacaoMB.edificacao.exercicio}" showOn="button" />
+                        Valor Construção:<p:inputText value="#{edificacaoMB.edificacao.valor}"/>
                     </h:panelGrid>
-                    <br/>
-                    <p:dataTable >
-                        <p:column headerText="Exercício">
-                            
-                        </p:column>
-                        <p:column headerText="Valor Construção (m²)">
-                            
-                        </p:column>
-                    </p:dataTable>
+                    <p:commandButton value="Salvar" ajax="false"  update=":formCampos, :tabelaEdificacaos" action="#{edificacaoMB.inserirEdificacao()}"/>
                 </h:form>
+                <p:separator/>
+                <p:dataTable id="tabelaEdificacaos" value="#{edificacaoMB.edificacaos}" emptyMessage="Não há registros" var="edificacao" paginator="true" rows="5"
+                             selectionMode="single" rowKey="#{edificacao.id}"> 
+                    <f:facet name="header">
+                        <h:outputText value="Edificações cadastradas"/>
+                    </f:facet>
+                    <p:column headerText="Descrição" filterBy="#{edificacao.descricao}" filterMatchMode="contains"> 
+                        <h:outputText value="#{edificacao.descricao}"/> 
+                    </p:column> 
+                    <p:column headerText="Fator" filterBy="#{edificacao.fator}" filterMatchMode="contains"> 
+                        <h:outputText value="#{edificacao.fator}"/> 
+                    </p:column>
+                </p:dataTable> 
             </ui:define>
         </ui:decorate>
     </h:body>

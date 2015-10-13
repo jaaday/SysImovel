@@ -5,10 +5,10 @@
  */
 package br.com.mw.sysimovel.negocio;
 
-import br.com.mw.sysimovel.dao.BairroJpaController;
+import br.com.mw.sysimovel.dao.ContribuinteJpaController;
 import br.com.mw.sysimovel.dao.exceptions.NonexistentEntityException;
 import br.com.mw.sysimovel.dao.util.JPAUtil;
-import br.com.mw.sysimovel.model.Bairro;
+import br.com.mw.sysimovel.model.Contribuinte;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,44 +17,45 @@ import java.util.logging.Logger;
  *
  * @author sephi_000
  */
-public class BairroRN {
+public class ContribuinteRN {
+
+    private final ContribuinteJpaController dao;
     
-    private final BairroJpaController dao;
-    
-    public BairroRN(){
-        dao = new BairroJpaController(JPAUtil.EMF);
+    public ContribuinteRN(){
+        dao = new ContribuinteJpaController(JPAUtil.EMF);
     }
     
-    public void novoBairro(Bairro b){
+    public void novoContribuinte(Contribuinte b){
         dao.create(b);
     }
     
-    public void alterarBairro(Bairro b){
+    public void alterarContribuinte(Contribuinte b){
         try {
             dao.edit(b);
         } catch (Exception ex) {
-            Logger.getLogger(BairroRN.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ContribuinteRN.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
     
-    public void excluirBairro(Bairro b){
+    public void excluirContribuinte(Contribuinte b){
         try {
             dao.destroy(b.getId());
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(BairroRN.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ContribuinteRN.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
     
-    public Bairro pesquisarBairro(Bairro e){
-        return dao.pesqBairroNome(e);
+    public Contribuinte pesquisarContribuinte(Contribuinte e){
+        return dao.pesqContribuinteNome(e);
     }
     
     public String removerMascara(String text){
         return text.replaceAll("[.-]", "");  
     }
 
-    public List<Bairro> listBairros(){
-        return dao.findBairroEntities();
+    public List<Contribuinte> listContribuintes(){
+        return dao.findContribuinteEntities();
     }
+    
 }

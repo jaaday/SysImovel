@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -132,6 +133,18 @@ public class TopografiaJpaController implements Serializable {
             return ((Long) q.getSingleResult()).intValue();
         } finally {
             em.close();
+        }
+    }
+
+    public Topografia pesqTopografiaNome(Topografia u) {
+        EntityManager em = getEntityManager();
+        try{                                
+            TypedQuery<Topografia> query = em.createQuery("select t from Topografia t where t.descricao = :descricao",Topografia.class);
+            query.setParameter("descricao", u.getDescricao());
+            return query.getSingleResult();
+            
+        }catch (Exception e){
+            return null;
         }
     }
     

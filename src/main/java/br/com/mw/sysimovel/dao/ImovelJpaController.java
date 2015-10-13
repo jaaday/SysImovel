@@ -20,6 +20,7 @@ import br.com.mw.sysimovel.model.Setor;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *

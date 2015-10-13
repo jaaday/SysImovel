@@ -90,6 +90,11 @@ public class Imovel implements Serializable {
     private Setor setorId;
 
     public Imovel() {
+        contribuinteId = new Contribuinte();
+        edificacaoId = new Edificacao();
+        logradouroId = new Logradouro();
+        naturezaId = new Natureza();
+        setorId = new Setor();
     }
 
     public Imovel(Integer id) {

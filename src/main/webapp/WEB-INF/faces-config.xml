@@ -8,4 +8,49 @@
         <managed-bean-class>br.com.mw.sysimovel.bean.BairroMB</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>utilizacaoMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.UtilizacaoMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>topografiaMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.TopografiaMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>situacaoMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.SituacaoMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>distritoMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.DistritoMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>setorMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.SetorMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>contribuinteMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.ContribuinteMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>imovelMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.ImovelMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>naturezaMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.NaturezaMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>edificacaoMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.EdificacaoMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

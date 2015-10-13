@@ -4,60 +4,81 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Contribuintes</title>
     </h:head>
     <h:body>
         <ui:decorate template="/JanelaPrincipal.xhtml">
             <ui:define name="centro">
-                <h:form>
+                <h:form id="formCampos">
                     <p:fieldset legend="Informações gerais">
                         <h:panelGrid columns="2">
                             <h:outputText value="Tipo do Contribuinte"/>
-                            <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:200px">
+                            <p:selectOneMenu id="console" value="#{contribuinteMB.contribuinte.tipo}" style="width:200px">
                                 <f:selectItem itemLabel="Selecionar" itemValue="" />
-                                <f:selectItem itemLabel="Pessoa Física" itemValue="Pessoa Física" />
-                                <f:selectItem itemLabel="Pessoa Jurídica" itemValue="Pessoa Jurídica" />
+                                <f:selectItem itemLabel="Pessoa Física" itemValue="1" />
+                                <f:selectItem itemLabel="Pessoa Jurídica" itemValue="2" />
                             </p:selectOneMenu>
                         </h:panelGrid>         
                         <h:panelGrid columns="4">
-                            <h:outputText value="CNPJ:"/><p:inputText maxlength="14" style="width: 200px"/>
-                            <h:outputText value="CPF:"/><p:inputText maxlength="11" style="width: 200px"/>
+                            <h:outputText value="CNPJ:"/><p:inputText maxlength="14" style="width: 200px" value="#{contribuinteMB.contribuinte.cnpj}"/>
+                            <h:outputText value="CPF:"/><p:inputText maxlength="11" style="width: 200px" value="#{contribuinteMB.contribuinte.cpf}"/>
                         </h:panelGrid>
                         <h:panelGrid columns="2"> 
-                            <h:outputText value="Nome:"/><p:inputText maxlength="50" style="width: 660px"/>
+                            <h:outputText value="Nome:"/><p:inputText maxlength="50" style="width: 660px" value="#{contribuinteMB.contribuinte.nome}"/>
                         </h:panelGrid>
                     </p:fieldset>
                     <p:separator/>
                     <p:fieldset legend="Informações do logradouro">
                         <h:panelGrid columns="2">    
-                            <h:outputText value="Tipo:"/><p:inputText style="width: 200px"/>
+                            <h:outputText value="Tipo:"/><p:inputText style="width: 200px" value="#{contribuinteMB.contribuinte.tipoLogradouro}"/>
                         </h:panelGrid>
                         <h:panelGrid columns="4">
-                            <h:outputText value="UF:"/><p:inputText style="width: 50px"/> 
-                            <h:outputText value="CEP:"/><p:inputText style="width: 100px"/> 
+                            <h:outputText value="UF:"/><p:inputText style="width: 50px" value="#{contribuinteMB.contribuinte.uf}"/> 
+                            <h:outputText value="CEP:"/><p:inputText style="width: 100px" value="#{contribuinteMB.contribuinte.cep}"/> 
                         </h:panelGrid>
                         <h:panelGrid columns="4"> 
-                            <h:outputText value="Endereco:"/><p:inputText style="width: 450px"/>                          
-                            <h:outputText value="Numero:"/><p:inputText style="width: 95px"/> 
+                            <h:outputText value="Endereco:"/><p:inputText style="width: 450px" value="#{contribuinteMB.contribuinte.endereco}"/>                          
+                            <h:outputText value="Numero:"/><p:inputText style="width: 95px" value="#{contribuinteMB.contribuinte.numero}"/>
                         </h:panelGrid>
                         <h:panelGrid columns="2">
-                            <h:outputText value="Complemento:"/><p:inputText style="width: 600px"/>
+                            <h:outputText value="Complemento:"/><p:inputText style="width: 600px" value="#{contribuinteMB.contribuinte.complemento}"/>
                         </h:panelGrid>
                         <h:panelGrid columns="4">  
-                            <h:outputText value="Cidade:"/><p:inputText style="width: 295px"/>
-                            <h:outputText value="Bairro:"/><p:inputText style="width: 290px"/>      
+                            <h:outputText value="Cidade:"/><p:inputText style="width: 295px" value="#{contribuinteMB.contribuinte.cidade}"/>
+                            <h:outputText value="Bairro:"/><p:inputText style="width: 290px" value="#{contribuinteMB.contribuinte.bairro}"/>      
                         </h:panelGrid>
                     </p:fieldset>
                     <p:separator/>
                     <p:fieldset legend="Informações para contato">
                         <h:panelGrid columns="4">
-                            <h:outputText value="Fone:"/><p:inputText style="width: 180px"/>
-                            <h:outputText value="E-mail:"/><p:inputText style="width: 415px"/>   
+                            <h:outputText value="Fone:"/><p:inputText style="width: 180px" value="#{contribuinteMB.contribuinte.fone}"/>
+                            <h:outputText value="E-mail:"/><p:inputText style="width: 415px" value="#{contribuinteMB.contribuinte.email}"/>   
                         </h:panelGrid>
                     </p:fieldset>
+                    <p:commandButton value="Salvar" ajax="false"  update=":formCampos, :tabelaContribuintes" action="#{contribuinteMB.inserirContribuinte()}"/>
+
                 </h:form>
+                
+                <p:separator/>
+                <p:dataTable id="tabelaContribuintes" value="#{contribuinteMB.contribuintes}" emptyMessage="Não há registros" var="contribuinte" paginator="true" rows="5"
+                             selectionMode="single" rowKey="#{contribuinte.id}"> 
+                    <f:facet name="header">
+                        <h:outputText value="Contribuintes cadastrados"/>
+                    </f:facet>
+                    <p:column headerText="Nome" filterBy="#{contribuinte.nome}" filterMatchMode="contains"> 
+                        <h:outputText value="#{contribuinte.nome}"/> 
+                    </p:column> 
+                    <p:column headerText="Telefone" filterBy="#{contribuinte.fone}" filterMatchMode="contains"> 
+                        <h:outputText value="#{contribuinte.fone}"/> 
+                    </p:column>
+                    <p:column headerText="E-mail" filterBy="#{contribuinte.email}" filterMatchMode="contains"> 
+                        <h:outputText value="#{contribuinte.email}"/> 
+                    </p:column>
+                </p:dataTable> 
+               
             </ui:define>
         </ui:decorate>
     </h:body>
