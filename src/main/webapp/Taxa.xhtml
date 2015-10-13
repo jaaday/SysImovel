@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Taxas</title>
     </h:head>
@@ -12,11 +13,27 @@
             <ui:define name="centro">
                 <h:form>
                     <h:panelGrid columns="2">
-                        Codigo:<p:inputText />
                         Descricao:<p:inputText />
                         Taxa Terreno:<p:inputText />
                         Taxa Construcao:<p:inputText />
                     </h:panelGrid>
+                    <br/>
+                    <p:commandButton value="Salvar"/>
+                    <p:separator/>
+                    <p:dataTable >
+                        <f:facet name="header">
+                            <h:outputText value="Posicionamentos cadastrados"/>
+                        </f:facet>
+                        <p:column headerText="Descrição" filterMatchMode="contains">
+                            
+                        </p:column>
+                        <p:column headerText="Taxa Terreno" filterMatchMode="contains">
+                            
+                        </p:column>
+                        <p:column headerText="Taxa Construção" filterMatchMode="contains">
+                            
+                        </p:column>
+                    </p:dataTable>
                 </h:form>
             </ui:define>
         </ui:decorate>
