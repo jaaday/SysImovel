@@ -49,8 +49,8 @@
                             <p:fieldset legend="Localização do Imóvel">
                                 <h:panelGrid columns="4">
                                     Logradouro:
-                                    <p:selectOneMenu id="logradouro" value="#{imovelMB.imovel.naturezaId}" effect="fade" converter="natureza">
-                                        <f:selectItems value="#{naturezaMB.naturezas}" var="natureza" itemLabel="#{natureza.descricao}" itemValue="#{natureza}" />
+                                    <p:selectOneMenu id="logradouro" value="#{imovelMB.imovel.logradouroId}" effect="fade" converter="logradouro">
+                                        <f:selectItems value="#{logradouroMB.logradouros}" var="logradouro" itemLabel="#{logradouro.descricao}" itemValue="#{logradouro}" />
                                     </p:selectOneMenu> 
                                     Seção:
                                     <p:selectOneMenu id="secao" value="#{imovelMB.imovel.naturezaId}" effect="fade" converter="natureza">
@@ -173,6 +173,7 @@
                                     <h:panelGrid columns="2">
                                         <h6>Valor venal TOTAL:</h6><p:inputText/>
                                     </h:panelGrid>
+                                </h:panelGrid>
                             </p:fieldset>
                         </p:tab>
                         <p:tab title="IPTU">

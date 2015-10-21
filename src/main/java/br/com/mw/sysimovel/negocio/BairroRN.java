@@ -26,7 +26,12 @@ public class BairroRN {
     }
     
     public void novoBairro(Bairro b){
-        dao.create(b);
+        try{
+            dao.create(b);
+        } catch(Exception ex){
+            Logger.getLogger(BairroRN.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     public void alterarBairro(Bairro b){

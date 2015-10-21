@@ -11,7 +11,7 @@
     <h:body>
         <ui:decorate template="/JanelaPrincipal.xhtml">
             <ui:define name="centro">
-                <h:form id="formCampos">
+                <h:form id="formCamposBairro">
                     <h:panelGrid columns="2">
                         Nome do bairro:<p:inputText value="#{bairroMB.bairro.nome}"/>
                     </h:panelGrid>
@@ -19,28 +19,26 @@
                     <p:fieldset legend="Valores padrão para cálculo do imposto">
                         <h:panelGrid columns="2">
                             Terreno:<p:inputText value="#{bairroMB.bairro.valorTerreno}"/>
-                            Edificacoes:<p:inputText value="#{bairroMB.bairro.valorEdificacao}"/>
+                            Edificaçao:<p:inputText value="#{bairroMB.bairro.valorEdificacao}"/>
                         </h:panelGrid>
                     </p:fieldset>
-                    <p:commandButton value="Salvar" ajax="false"  update=":formCampos, :tabelaBairros" action="#{bairroMB.inserirBairro()}"/>
-
-                    <p:commandButton value="Reajustar todos os valores" />
-                    Informando um percentual geral
+                    <p:commandButton value="Salvar" ajax="false" update=":formCamposBairro, :tabelaBairros" action="#{bairroMB.inserirBairro()}"/>
                 </h:form>
 
                 <p:separator/>
-                <p:dataTable id="tabelaBairros" value="#{bairroMB.bairros}" emptyMessage="Não há registros" var="bairro" paginator="true" rows="5"
+                <p:dataTable id="tabelaBairros" value="#{bairroMB.bairros}" 
+                             emptyMessage="Não há registros" var="bairro" paginator="true" rows="5"
                              selectionMode="single" rowKey="#{bairro.id}"> 
                     <f:facet name="header">
                         <h:outputText value="Bairros cadastrados"/>
                     </f:facet>
-                    <p:column headerText="Nome" filterBy="#{bairro.nome}" filterMatchMode="contains"> 
+                    <p:column headerText="Nome"> 
                         <h:outputText value="#{bairro.nome}"/> 
                     </p:column> 
-                    <p:column headerText="Valor terreno" filterBy="#{bairro.valorTerreno}" filterMatchMode="contains"> 
+                    <p:column headerText="Valor terreno"> 
                         <h:outputText value="#{bairro.valorTerreno}"/> 
                     </p:column>
-                    <p:column headerText="Valor edificação" filterBy="#{bairro.valorEdificacao}" filterMatchMode="contains"> 
+                    <p:column headerText="Valor edificação"> 
                         <h:outputText value="#{bairro.valorEdificacao}"/> 
                     </p:column>
                 </p:dataTable> 

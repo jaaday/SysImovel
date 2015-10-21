@@ -6,6 +6,8 @@
 package br.com.mw.sysimovel.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -54,6 +56,10 @@ public class Logradouro implements Serializable {
     @Size(max = 9)
     @Column(name = "cep")
     private String cep;
+    @Column(name = "lado_direito")
+    private BigDecimal valorDireito;
+    @Column(name = "lado_esquerdo")
+    private BigDecimal valorEsquerdo;
     @JoinTable(name = "logradouro_taxa", joinColumns = {
         @JoinColumn(name = "logradouro_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "taxa_id", referencedColumnName = "id")})
@@ -71,10 +77,16 @@ public class Logradouro implements Serializable {
     private Collection<SecaoLogradouro> secaoLogradouroCollection;
 
     public Logradouro() {
+        this.bairroId = new Bairro();
+        this.loteamentoId = new Loteamento();
+        this.taxaCollection = new ArrayList<>();
     }
 
     public Logradouro(Integer id) {
         this.id = id;
+        this.bairroId = new Bairro();
+        this.loteamentoId = new Loteamento();
+        this.taxaCollection = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -175,6 +187,22 @@ public class Logradouro implements Serializable {
     @Override
     public String toString() {
         return "br.com.mw.sysimovel.model.Logradouro[ id=" + id + " ]";
+    }
+
+    public BigDecimal getValorDireito() {
+        return valorDireito;
+    }
+
+    public void setValorDireito(BigDecimal valorDireito) {
+        this.valorDireito = valorDireito;
+    }
+
+    public BigDecimal getValorEsquerdo() {
+        return valorEsquerdo;
+    }
+
+    public void setValorEsquerdo(BigDecimal valorEsquerdo) {
+        this.valorEsquerdo = valorEsquerdo;
     }
     
 }

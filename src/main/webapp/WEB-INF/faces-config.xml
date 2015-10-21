@@ -53,4 +53,14 @@
         <managed-bean-class>br.com.mw.sysimovel.bean.EdificacaoMB</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>logradouroMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.LogradouroMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>taxaMB</managed-bean-name>
+        <managed-bean-class>br.com.mw.sysimovel.bean.TaxaMB</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

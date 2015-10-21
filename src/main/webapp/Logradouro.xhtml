@@ -11,41 +11,76 @@
     <h:body>
         <ui:decorate template="/JanelaPrincipal.xhtml">
             <ui:define name="centro">
-                <h:form>
+                <h:form id="formCampos">
                     <h:panelGrid columns="2">
-                        Código:<p:inputText />
-                        Distrito:<p:selectOneMenu>
-                            
-                        </p:selectOneMenu>
-                        Setor:<p:selectOneMenu>
-                            
-                        </p:selectOneMenu>
-                        Tipo de Logradouro:<p:inputText/>
-                        Descrição:<p:inputText/>
-                        CEP:<p:inputMask mask=""/>
+                        Distrito:
+                        <p:selectOneMenu id="distrito" value="#{logradouroMB.logradouro.loteamentoId.setorId.distritoId}" effect="fade" converter="distrito">
+                            <f:selectItems value="#{distritoMB.distritos}" var="distrito" itemLabel="#{distrito.descricao}" itemValue="#{distrito}" />
+                        </p:selectOneMenu>  
+                        Setor:
+                        <p:selectOneMenu id="setor" value="#{logradouroMB.logradouro.loteamentoId.setorId}" effect="fade" converter="setor">
+                            <f:selectItems value="#{setorMB.setors}" var="setor" itemLabel="#{setor.descricao}" itemValue="#{setor}" />
+                        </p:selectOneMenu> 
+                        Bairro:
+                        <p:selectOneMenu id="bairro" value="#{logradouroMB.logradouro.bairroId}" effect="fade" converter="bairro">
+                            <f:selectItems value="#{bairroMB.bairros}" var="bairro" itemLabel="#{bairro.nome}" itemValue="#{bairro}" />
+                        </p:selectOneMenu> 
+                        Tipo de Logradouro:<p:inputText value="#{logradouroMB.logradouro.tipo}"/>
+                        Descrição:<p:inputText value="#{logradouroMB.logradouro.descricao}"/>
+                        CEP:<p:inputMask mask="" value="#{logradouroMB.logradouro.cep}"/>
                     </h:panelGrid>
                     <br/>
-                    <p:dataTable>
-                        <f:facet name="header">
-                            <h:outputText value="Seções"/>
-                        </f:facet>
-                        <p:column headerText="Código">
-                            
-                        </p:column>
-                        <p:column headerText="Descrição">
-                            
-                        </p:column>
-                        <p:column headerText="Valor do Terreno">
-                            
-                        </p:column>
-                    </p:dataTable>
+                    <p:fieldset legend="Seções">
+                        <h:panelGrid columns="2">
+                            Valor do terreno(LADO DIREITO):<p:inputText value="#{logradouroMB.logradouro.descricao}"/>
+                            Valor do terreno(LADO ESQUERDO):<p:inputMask mask="" value="#{logradouroMB.logradouro.cep}"/>
+                        </h:panelGrid>
+                    </p:fieldset>
                     <p:separator/>
-                    <p:dataTable>
-                        <f:facet name="header">
-                            <h:outputText value="Taxa"/>
-                        </f:facet>
-                    </p:dataTable>
+
+                    <p:fieldset legend="Adicionar Taxas">
+                        <h:panelGrid columns="2">
+
+                            <p:selectOneMenu id="taxa" value="#{logradouroMB.taxa}" effect="fade" converter="taxa">
+                                <f:selectItems value="#{taxaMB.taxas}" var="taxa" itemLabel="#{taxa.descricao}" itemValue="#{taxa}" />
+                            </p:selectOneMenu> 
+                            <p:commandButton value="Adicionar" ajax="false"  update=":tabelaTaxas" action="#{logradouroMB.adicionarTaxa()}"/>
+
+                        </h:panelGrid>
+
+
+                        <p:dataTable id="tabelaTaxas" value="#{logradouroMB.logradouro.taxaCollection}" emptyMessage="Não há registros" var="taxa" rows="5"
+                                     selectionMode="single" rowKey="#{taxa.id}">
+                            <f:facet name="header">
+                                <h:outputText value="Taxa"/>
+                            </f:facet>
+                            <p:column headerText="Descrição"> 
+                                <h:outputText value="#{taxa.descricao}"/> 
+                            </p:column> 
+                            <p:column headerText="Taxa do Terreno"> 
+                                <h:outputText value="#{taxa.taxaTerreno}"/> 
+                            </p:column> 
+                            <p:column headerText="Taxa de Construção"> 
+                                <h:outputText value="#{taxa.taxaConstrucao}"/> 
+                            </p:column> 
+                        </p:dataTable>
+                    </p:fieldset>
+                    <p:commandButton value="Salvar" ajax="false"  update=":formCampos, :tabelaLogradouros" action="#{logradouroMB.inserirLogradouro()}" />           
+
                 </h:form>
+                <p:separator/>
+                <p:dataTable id="tabelaLogradouros" value="#{logradouroMB.logradouros}" emptyMessage="Não há registros" var="logradouro" paginator="true" rows="5"
+                             selectionMode="single" rowKey="#{logradouro.id}"> 
+                    <f:facet name="header">
+                        <h:outputText value="Logradouros cadastrados"/>
+                    </f:facet>
+                    <p:column headerText="Descrição" filterBy="#{logradouro.descricao}" filterMatchMode="contains"> 
+                        <h:outputText value="#{logradouro.descricao}"/> 
+                    </p:column> 
+                    <p:column headerText="Fator" filterBy="#{logradouro.tipo}" filterMatchMode="contains"> 
+                        <h:outputText value="#{logradouro.tipo}"/> 
+                    </p:column>
+                </p:dataTable>
             </ui:define>
         </ui:decorate>
     </h:body>

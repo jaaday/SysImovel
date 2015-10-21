@@ -5,9 +5,9 @@
  */
 package br.com.mw.sysimovel.bean.converters;
 
-import br.com.mw.sysimovel.dao.EdificacaoJpaController;
+import br.com.mw.sysimovel.dao.BairroJpaController;
 import br.com.mw.sysimovel.dao.util.JPAUtil;
-import br.com.mw.sysimovel.model.Edificacao;
+import br.com.mw.sysimovel.model.Bairro;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -17,21 +17,21 @@ import javax.faces.convert.FacesConverter;
  *
  * @author sephi_000
  */
-@FacesConverter(value = "edificacao", forClass = Edificacao.class)
-public class EdificacaoConverter implements Converter {
+@FacesConverter(value = "bairro", forClass = Bairro.class)
+public class BairroConverter implements Converter {
 
-    private Edificacao edificacao = new Edificacao();
+    private Bairro bairro = new Bairro();
     
     @Override
     public Object getAsObject(FacesContext fc, UIComponent component, String value) {
-        EdificacaoJpaController dao = new EdificacaoJpaController(JPAUtil.EMF);
-        return dao.findEdificacao(Integer.valueOf(value));
+        BairroJpaController dao = new BairroJpaController(JPAUtil.EMF);
+        return dao.findBairro(Integer.valueOf(value));
     }
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        edificacao = (Edificacao) value;
-        return String.valueOf(edificacao.getId());
+        bairro = (Bairro) value;
+        return String.valueOf(bairro.getId());
     }
     
 }

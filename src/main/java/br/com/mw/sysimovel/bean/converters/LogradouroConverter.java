@@ -5,9 +5,9 @@
  */
 package br.com.mw.sysimovel.bean.converters;
 
-import br.com.mw.sysimovel.dao.EdificacaoJpaController;
+import br.com.mw.sysimovel.dao.LogradouroJpaController;
 import br.com.mw.sysimovel.dao.util.JPAUtil;
-import br.com.mw.sysimovel.model.Edificacao;
+import br.com.mw.sysimovel.model.Logradouro;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -17,21 +17,21 @@ import javax.faces.convert.FacesConverter;
  *
  * @author sephi_000
  */
-@FacesConverter(value = "edificacao", forClass = Edificacao.class)
-public class EdificacaoConverter implements Converter {
+@FacesConverter(value = "logradouro", forClass = Logradouro.class)
+public class LogradouroConverter implements Converter {
 
-    private Edificacao edificacao = new Edificacao();
+    private Logradouro logradouro = new Logradouro();
     
     @Override
     public Object getAsObject(FacesContext fc, UIComponent component, String value) {
-        EdificacaoJpaController dao = new EdificacaoJpaController(JPAUtil.EMF);
-        return dao.findEdificacao(Integer.valueOf(value));
+        LogradouroJpaController dao = new LogradouroJpaController(JPAUtil.EMF);
+        return dao.findLogradouro(Integer.valueOf(value));
     }
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        edificacao = (Edificacao) value;
-        return String.valueOf(edificacao.getId());
+        logradouro = (Logradouro) value;
+        return String.valueOf(logradouro.getId());
     }
     
 }

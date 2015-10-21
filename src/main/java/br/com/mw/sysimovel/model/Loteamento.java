@@ -51,10 +51,12 @@ public class Loteamento implements Serializable {
     private Setor setorId;
 
     public Loteamento() {
+        this.setorId = new Setor();
     }
 
     public Loteamento(Integer id) {
         this.id = id;
+        this.setorId = new Setor();
     }
 
     public Integer getId() {

@@ -7,6 +7,7 @@ package br.com.mw.sysimovel.bean;
 
 import br.com.mw.sysimovel.model.Bairro;
 import br.com.mw.sysimovel.negocio.BairroRN;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,15 +18,18 @@ public class BairroMB {
 
     private final BairroRN negocio = new BairroRN();
     private Bairro bairro;
+    private ArrayList<Bairro> bairros;
 
     public BairroMB(Bairro bairro) {
         this.bairro = bairro;
+        bairros = (ArrayList<Bairro>) negocio.listBairros();
     }
     /**
      * Creates a new instance of BairroMB
      */
     public BairroMB() {
         bairro = new Bairro();
+        bairros = (ArrayList<Bairro>) negocio.listBairros();
     }
     
     public void inserirBairro(){
@@ -41,7 +45,11 @@ public class BairroMB {
     }
     
     public List<Bairro> getBairros() {
-        return negocio.listBairros();
+        return bairros;
+    }
+    
+    public void setBairros(ArrayList<Bairro> bairros) {
+        this.bairros = bairros;
     }
     
 }

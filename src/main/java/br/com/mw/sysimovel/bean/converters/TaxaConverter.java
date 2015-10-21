@@ -5,9 +5,9 @@
  */
 package br.com.mw.sysimovel.bean.converters;
 
-import br.com.mw.sysimovel.dao.EdificacaoJpaController;
+import br.com.mw.sysimovel.dao.TaxaJpaController;
 import br.com.mw.sysimovel.dao.util.JPAUtil;
-import br.com.mw.sysimovel.model.Edificacao;
+import br.com.mw.sysimovel.model.Taxa;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -17,21 +17,20 @@ import javax.faces.convert.FacesConverter;
  *
  * @author sephi_000
  */
-@FacesConverter(value = "edificacao", forClass = Edificacao.class)
-public class EdificacaoConverter implements Converter {
-
-    private Edificacao edificacao = new Edificacao();
+@FacesConverter(value = "taxa", forClass = Taxa.class)
+public class TaxaConverter implements Converter {
+    private Taxa taxa = new Taxa();
     
     @Override
     public Object getAsObject(FacesContext fc, UIComponent component, String value) {
-        EdificacaoJpaController dao = new EdificacaoJpaController(JPAUtil.EMF);
-        return dao.findEdificacao(Integer.valueOf(value));
+        TaxaJpaController dao = new TaxaJpaController(JPAUtil.EMF);
+        return dao.findTaxa(Integer.valueOf(value));
     }
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        edificacao = (Edificacao) value;
-        return String.valueOf(edificacao.getId());
+        taxa = (Taxa) value;
+        return String.valueOf(taxa.getId());
     }
-    
 }
+

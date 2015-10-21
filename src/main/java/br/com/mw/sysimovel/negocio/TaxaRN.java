@@ -5,10 +5,10 @@
  */
 package br.com.mw.sysimovel.negocio;
 
-import br.com.mw.sysimovel.dao.SituacaoJpaController;
+import br.com.mw.sysimovel.dao.TaxaJpaController;
 import br.com.mw.sysimovel.dao.exceptions.NonexistentEntityException;
 import br.com.mw.sysimovel.dao.util.JPAUtil;
-import br.com.mw.sysimovel.model.Situacao;
+import br.com.mw.sysimovel.model.Taxa;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,43 +17,39 @@ import java.util.logging.Logger;
  *
  * @author sephi_000
  */
-public class SituacaoRN {
-    private final SituacaoJpaController dao;
+public class TaxaRN {
+    private final TaxaJpaController dao;
     
-    public SituacaoRN(){
-        dao = new SituacaoJpaController(JPAUtil.EMF);
+    public TaxaRN(){
+        dao = new TaxaJpaController(JPAUtil.EMF);
     }
     
-    public void novoSituacao(Situacao t){
+    public void novoTaxa(Taxa t){
         dao.create(t);
     }
     
-    public void alterarSituacao(Situacao t){
+    public void alterarTaxa(Taxa t){
         try {
             dao.edit(t);
         } catch (Exception ex) {
-            Logger.getLogger(SituacaoRN.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TaxaRN.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
     
-    public void excluirSituacao(Situacao s){
+    public void excluirTaxa(Taxa t){
         try {
-            dao.destroy(s.getId());
+            dao.destroy(t.getId());
         } catch (NonexistentEntityException ex) {
-            Logger.getLogger(SituacaoRN.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TaxaRN.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }
-    
-    public Situacao pesquisarSituacao(Situacao s){
-        return dao.pesqSituacaoNome(s);
     }
     
     public String removerMascara(String text){
         return text.replaceAll("[.-]", "");  
     }
 
-    public List<Situacao> listSituacaos(){
-        return dao.findSituacaoEntities();
+    public List<Taxa> listTaxas(){
+        return dao.findTaxaEntities();
     }
 }
