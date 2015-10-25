@@ -18,18 +18,15 @@ public class BairroMB {
 
     private final BairroRN negocio = new BairroRN();
     private Bairro bairro;
-    private ArrayList<Bairro> bairros;
 
     public BairroMB(Bairro bairro) {
         this.bairro = bairro;
-        bairros = (ArrayList<Bairro>) negocio.listBairros();
     }
     /**
      * Creates a new instance of BairroMB
      */
     public BairroMB() {
         bairro = new Bairro();
-        bairros = (ArrayList<Bairro>) negocio.listBairros();
     }
     
     public void inserirBairro(){
@@ -45,11 +42,7 @@ public class BairroMB {
     }
     
     public List<Bairro> getBairros() {
-        return bairros;
-    }
-    
-    public void setBairros(ArrayList<Bairro> bairros) {
-        this.bairros = bairros;
+        return negocio.listBairros();
     }
     
 }

@@ -23,23 +23,24 @@
                         </h:panelGrid>
                     </p:fieldset>
                     <p:commandButton value="Salvar" ajax="false" update=":formCamposBairro, :tabelaBairros" action="#{bairroMB.inserirBairro()}"/>
+                    <p:commandButton value="Gerar Boleto" ajax="false" action="#{gerarBoletoMB.gerar()}"/>
                 </h:form>
 
-                <p:separator/>
+                <p:separator />
                 <p:dataTable id="tabelaBairros" value="#{bairroMB.bairros}" 
-                             emptyMessage="Não há registros" var="bairro" paginator="true" rows="5"
-                             selectionMode="single" rowKey="#{bairro.id}"> 
+                             emptyMessage="Não há registros" var="bairroV" paginator="true" rows="5"
+                             selectionMode="single" rowKey="#{bairroV.id}"> 
                     <f:facet name="header">
                         <h:outputText value="Bairros cadastrados"/>
                     </f:facet>
                     <p:column headerText="Nome"> 
-                        <h:outputText value="#{bairro.nome}"/> 
+                        <h:outputText value="#{bairroV.nome}"/> 
                     </p:column> 
                     <p:column headerText="Valor terreno"> 
-                        <h:outputText value="#{bairro.valorTerreno}"/> 
+                        <h:outputText value="#{bairroV.valorTerreno}"/> 
                     </p:column>
                     <p:column headerText="Valor edificação"> 
-                        <h:outputText value="#{bairro.valorEdificacao}"/> 
+                        <h:outputText value="#{bairroV.valorEdificacao}"/> 
                     </p:column>
                 </p:dataTable> 
             </ui:define>
