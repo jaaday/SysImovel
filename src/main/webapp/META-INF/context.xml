@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/SysImovel"/>
+<Context antiJARLocking="true" path="/SysImovel">
+  <Resource auth="Container" driverClassName="org.postgresql.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="CONECTION_PTGS" password="" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5432/drefc_db" username="postgres"/>
+</Context>
