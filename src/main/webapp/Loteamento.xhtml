@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Loteamentos</title>
     </h:head>
@@ -12,16 +13,33 @@
             <ui:define name="centro">
                 <h:form>
                     <h:panelGrid columns="2">
-                        Codigo:<p:inputText />
                         Distrito: <p:selectOneMenu>
 
                         </p:selectOneMenu>
                         Setor:<p:selectOneMenu>
 
                         </p:selectOneMenu>
-                        Descricao:<p:inputText />
+                        Descrição:<p:inputText />
                     </h:panelGrid>
                 </h:form>
+                <p:separator/>
+                <p:dataTable id="tabelaLoteamentos" emptyMessage="Não há registros">
+                    <f:facet name="header">
+                        <h:outputText value="Loteamentos cadastrados"/>
+                    </f:facet>
+                    
+                    <p:column headerText="Distrito">
+                        
+                    </p:column>
+                    
+                    <p:column headerText="Setor">
+                        
+                    </p:column>
+                    
+                    <p:column headerText="Descrição">
+                        
+                    </p:column>
+                </p:dataTable>
             </ui:define>
         </ui:decorate>
     </h:body>

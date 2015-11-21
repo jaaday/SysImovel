@@ -68,13 +68,13 @@
                     <f:facet name="header">
                         <h:outputText value="Contribuintes cadastrados"/>
                     </f:facet>
-                    <p:column headerText="Nome" filterBy="#{contribuinte.nome}" filterMatchMode="contains"> 
+                    <p:column headerText="Nome"> 
                         <h:outputText value="#{contribuinte.nome}"/> 
                     </p:column> 
-                    <p:column headerText="Telefone" filterBy="#{contribuinte.fone}" filterMatchMode="contains"> 
+                    <p:column headerText="Telefone"> 
                         <h:outputText value="#{contribuinte.fone}"/> 
                     </p:column>
-                    <p:column headerText="E-mail" filterBy="#{contribuinte.email}" filterMatchMode="contains"> 
+                    <p:column headerText="E-mail"> 
                         <h:outputText value="#{contribuinte.email}"/> 
                     </p:column>
                 </p:dataTable> 

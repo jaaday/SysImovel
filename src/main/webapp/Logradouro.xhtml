@@ -74,10 +74,10 @@
                     <f:facet name="header">
                         <h:outputText value="Logradouros cadastrados"/>
                     </f:facet>
-                    <p:column headerText="Descrição" filterBy="#{logradouro.descricao}" filterMatchMode="contains"> 
+                    <p:column headerText="Descrição"> 
                         <h:outputText value="#{logradouro.descricao}"/> 
                     </p:column> 
-                    <p:column headerText="Fator" filterBy="#{logradouro.tipo}" filterMatchMode="contains"> 
+                    <p:column headerText="Fator"> 
                         <h:outputText value="#{logradouro.tipo}"/> 
                     </p:column>
                 </p:dataTable>

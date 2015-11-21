@@ -240,13 +240,13 @@
                     <f:facet name="header">
                         <h:outputText value="Imóveis cadastrados"/>
                     </f:facet>
-                    <p:column headerText="Nome Proprietário" filterBy="#{imovel.contribuinteId.nome}" filterMatchMode="contains"> 
+                    <p:column headerText="Nome Proprietário"> 
                         <h:outputText value="#{imovel.contribuinteId.nome}"/> 
                     </p:column> 
-                    <p:column headerText="Setor" filterBy="#{imovel.setorId.descricao}" filterMatchMode="contains"> 
+                    <p:column headerText="Setor"> 
                         <h:outputText value="#{imovel.setorId.descricao}"/> 
                     </p:column>
-                    <p:column headerText="Distrito" filterBy="#{imovel.setorId.distritoId.descricao}" filterMatchMode="contains"> 
+                    <p:column headerText="Distrito"> 
                         <h:outputText value="#{imovel.setorId.distritoId.descricao}"/> 
                     </p:column>
                 </p:dataTable> 
